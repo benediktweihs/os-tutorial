@@ -16,6 +16,26 @@ int 0x10
 mov al, [0x8000]
 int 0x10
 
+mov bx, 127
+rec:
+	push bx
+	add bx, -1
+	cmp bx, 00
+	je end
+	jmp rec
+
+end:
+
+recSec:
+	cmp bx, 127
+	je endSec
+	pop bx
+	mov al,bl
+	int 0x10
+	jmp recSec
+
+endSec:
+
 
 ; recover our characters using the standard procedure: 'pop'
 ; We can only pop full words so we need an auxiliary register to manipulate
