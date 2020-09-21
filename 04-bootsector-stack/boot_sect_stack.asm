@@ -16,6 +16,7 @@ int 0x10
 mov al, [0x8000]
 int 0x10
 
+;print alphabet recursively for practice
 mov bx, 127
 rec:
 	push bx
@@ -57,6 +58,6 @@ mov al, [0x8000]
 int 0x10
 
 
-jmp $
+jmp $ ;once program above is done: just program an infinite loop!
 times 510-($-$$) db 0
 dw 0xaa55
