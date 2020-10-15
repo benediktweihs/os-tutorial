@@ -13,30 +13,11 @@ int 0x10
 
 ; however, don't try to access [0x8000] now, because it won't work
 ; you can only access the stack top so, at this point, only 0x7ffe (look above)
-mov al, [0x8000]
+pop bx
+mov al, bl
 int 0x10
 
-;print alphabet recursively for practice
-mov bx, 127
-rec:
-	push bx
-	add bx, -1
-	cmp bx, 00
-	je end
-	jmp rec
-
-end:
-
-recSec:
-	cmp bx, 127
-	je endSec
-	pop bx
-	mov al,bl
-	int 0x10
-	jmp recSec
-
-endSec:
-
+push 'C'
 
 ; recover our characters using the standard procedure: 'pop'
 ; We can only pop full words so we need an auxiliary register to manipulate
