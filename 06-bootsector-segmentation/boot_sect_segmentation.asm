@@ -13,7 +13,7 @@ mov al, [es:the_secret]
 int 0x10 ; doesn't look right... isn't 'es' currently 0x000?
 
 mov bx, 0x7c0
-mov es, bx
+mov es, bx ; can't write directly to memory references
 mov al, [es:the_secret]
 int 0x10
 
