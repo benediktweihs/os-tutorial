@@ -1,0 +1,5 @@
+1. code Bootsector
+2. load Kernel from disk!
+	2.1 load code and data segment (int 0x13)
+	2.2 code gdt (global descriptor table)
+3. activate 32-bit protected mode

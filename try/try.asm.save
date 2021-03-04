@@ -1,0 +1,13 @@
+mov ah, 0x0e
+mov dx, es
+;add al, 1
+;int 0x10
+call print_hex
+
+jmp $
+
+%include "../05-bootsector-functions-strings/boot_sect_print_hex.asm"
+05-bootsector-functions-strings
+
+times 510 - ($ - $$) db 0
+dw 0xaa55
